@@ -32,7 +32,6 @@ const addTask = () => {
     })
     clearFields()
     loadTasks();
-    localStorage.setItem("tasks", JSON.stringify(tasks))
 }
 
 const deleteTask = (id) => {
@@ -107,11 +106,7 @@ const createDoneTaskElement = (title) => {
 }
 
 const loadTasks = () => {
-    document.getElementById("content-1").innerHTML = ""
-    const storageTasks = localStorage.getItem("tasks")
-    if(storageTasks){
-        tasks = JSON.parse(storageTasks)
-    }
+    document.getElementById("content-1").innerHTML = ""   
     tasks.forEach(task => {
         document.getElementById("content-1").appendChild(createTaskElement(task.title, task.time, task.id))
     })
